@@ -1,0 +1,50 @@
+doctype html
+head
+  title= title
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+  script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+  script(src="https://apis.google.com/js/platform.js")
+  script(src="/scripts/main.js")
+  script.
+    $(function(){
+      var settings = {
+        gmapApi: '#{gmapApi}',
+        apiUrl: '#{apiUrl}',
+        clientId: '#{clientId}',
+      }
+      appCheck(settings);
+    })
+body
+  .container
+    .row
+      .col-sm-8
+        h1.h4= title
+      .col-sm-4.text-right
+        a#signout(href="#").btn.btn-danger.btn-sm.float-right Sign out
+    hr
+    .row
+      .col-md-12
+        p= message
+    .row
+      .col-md-6
+        .map-container.embed-responsive.embed-responsive-4by3
+          iframe#iframe(width="100%" height="400" frameborder="0" style="border:0" src="")
+      .col-md-6
+        .message.alert.alert-info
+        form.form
+          .form-group
+            label(for="email") Email
+            input(type="email" readonly="readonly")#email.form-control
+          .form-group
+            label(for="lat") Latitude
+            input(type="text" readonly="readonly")#lat.form-control
+          .form-group
+            label(for="long") Longtitude
+            input(type="text" readonly="readonly")#long.form-control
+          input(type="hidden" value="unknown")#userid
+          .btn-group.float-right
+            button#refresh.btn.btn-primary Get location
+            input(value="Save location" type="submit")#submit.btn.btn-success
+
