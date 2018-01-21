@@ -10,13 +10,13 @@ app.listen(port, host, () => {
   /* eslint-disable */
   console.log('Express server listening on port', port);
   const cwd = process.cwd();
-  console.log('listen ->', path.join(cwd, '/app/html'));
+  console.log('listen ->', path.join(cwd, '/app/html/'));
   /* eslint-enable */
 });
 
 app.get('/', (req, res) => {
   const cwd = process.cwd();
-  console.log(path.join(cwd, '/app/html'));
+  console.log(path.join(cwd, '/app/html/'));
   res.render('index', {
     title: 'My Home',
     message: 'Geolocation',
