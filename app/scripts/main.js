@@ -50,6 +50,7 @@ function sendGeoLocation(){
   });
 }
 function initGeolocation() {
+  $('#app').show();
   $('#refresh').on('click', function(e){
     e.preventDefault();
     getLocation();
