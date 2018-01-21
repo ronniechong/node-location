@@ -23,5 +23,9 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0"
+  },
+  "engines": {
+    "node": "9.2.0",
+    "npm": "5.5.1"
   }
 }
