@@ -18,7 +18,7 @@ class Store {
 
   add(location) {
     const ref = this.database.ref(process.env.DBREFERENCE);
-    const pushRef = ref.child(`${process.env.DBCHILD}/${location.userid}`);
+    const pushRef = ref.child(`${process.env.DBCHILD}`);
     const newPostRef = pushRef.push();
 
     return new Promise((resolve, reject) => {
@@ -28,6 +28,7 @@ class Store {
           long: location.long,
           lat: location.lat,
           email: location.email,
+          userid: location.userid,
         })
         .then(() => resolve({
           status: 200,
