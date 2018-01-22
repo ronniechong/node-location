@@ -16,11 +16,6 @@ class Store {
     this.database = firebase.database();
   }
 
-  // delete(id){
-  //   const ref = this.database.ref(process.env.DBREFERENCE);
-  //   const pushRef= ref.child(process.env.DBCHILD);
-  // }
-
   add(location) {
     const ref = this.database.ref(process.env.DBREFERENCE);
     const pushRef = ref.child(`${process.env.DBCHILD}/${location.userid}`);
